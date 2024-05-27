@@ -7,7 +7,7 @@ const Dashboard = require("../Model/dashboardModel")
 //@access public
 
 const getDashboard = asyncHandler(async (req, res) => {
-    const dashboard = await Dashboard.findById(req.params.vehicle_no)
+    const dashboard = await Dashboard.findOne({ vehicle_no: req.params.vehicle_no })
     if(!dashboard){
         res.status(404)
         throw new Error("Dashboard Not Found")
